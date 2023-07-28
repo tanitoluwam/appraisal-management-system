@@ -19,6 +19,7 @@ export interface CustomTheme {
 
 // Define color values
 const Green = "#1D606E";
+const mainGreen = "#059e8f";
 const black = "#000000";
 const white = "#ffffff";
 const lightNude = "#CFB99F";
@@ -39,11 +40,10 @@ export const theme: CustomTheme = {
       main: lightNude,
     },
 
-    // Add other properties required by the PaletteOptions interface
     mode: "light",
     contrastThreshold: 3,
     tonalOffset: 0.2,
-    // error: { main: "#f44336" }, // If you have the error property, add it here
+    // error: { main: "#f44336" }, 
   },
   typography: {
     fontSize: 14,
@@ -55,4 +55,3 @@ export const theme: CustomTheme = {
 };
 
 export default createTheme(theme);
-
