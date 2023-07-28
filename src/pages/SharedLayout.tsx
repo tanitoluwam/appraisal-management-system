@@ -253,6 +253,7 @@ function SharedLayout(props: SharedLayoutProps) {
                         width: "30px",
                         height: "30px",
                         marginRight: "0.4rem",
+                        fontWeight: "600",
                       }}
                     >
                       MJ
@@ -414,6 +415,8 @@ function SharedLayout(props: SharedLayoutProps) {
               </Paper>
             </Popover>
           </Stack>
+          <Outlet />
+
           {/* <Box
             sx={{
               px: 6,
