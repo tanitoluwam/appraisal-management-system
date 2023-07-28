@@ -8,11 +8,11 @@ import PerformanceIcon from "assets/images/performance-icon.svg";
 interface props {
   title: string;
   subTitle: string;
-  performance?: boolean;
+  icon: any;
   history?: boolean;
 }
-export default function CustomCard(props: props) {
-  const { title, subTitle, performance } = props;
+export default function AppraisalCard(props: props) {
+  const { title, subTitle, icon } = props;
   return (
     <Card
       sx={{
@@ -24,26 +24,35 @@ export default function CustomCard(props: props) {
           "0px 10.305499076843262px 61.83299255371094px 0px rgba(226, 236, 249, 0.50)",
       }}
     >
-      <CardContent>
-        <Typography
-          sx={{
-            fontSize: 14,
-            color: "#161736",
-            fontStyle: "normal",
-            fontWeight: 600,
-          }}
-          color="text.secondary"
-          gutterBottom
-        >
-          {title}
-        </Typography>
+      <CardContent
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Box component="img" src={icon} />
+
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
+            // display: "flex",
+            // flexDirection: "row-reverse",
+            // justifyContent: "space-between",
             alignItems: "center",
           }}
         >
+          <Typography
+            sx={{
+              fontSize: 14,
+              color: "#161736",
+              fontStyle: "normal",
+              fontWeight: 600,
+            }}
+            color="text.secondary"
+            gutterBottom
+          >
+            {title}
+          </Typography>
           <Typography
             sx={{
               color: !performance ? "#CFB99F" : "#6ED097",
@@ -53,7 +62,7 @@ export default function CustomCard(props: props) {
           >
             {subTitle}
           </Typography>
-          {performance ? <Box component="img" src={PerformanceIcon} /> : ""}
+          {/* <Box component="img" src={icon} /> */}
         </Box>
       </CardContent>
     </Card>

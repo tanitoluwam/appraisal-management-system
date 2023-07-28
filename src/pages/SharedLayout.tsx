@@ -1,29 +1,19 @@
-// import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import {
   Box,
-  Divider,
   Grid,
-  Paper,
-  Popover,
   Stack,
   Typography,
-  useMediaQuery,
   useTheme,
-  Dialog,
-  DialogContent,
-  DialogTitle,
+
   Avatar,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import logoutLogo from "../assets/images/logout.svg";
 import appraisal from "../assets/images/appraisal-history.svg";
 import appraisalActive from "../assets/images/appraisal-history-active.svg";
 import dashboardLogo from "../assets/images/dashboard.svg";
 import dashboardLogoActive from "../assets/images/dashboard-active.svg";
-import { deepOrange } from "@mui/material/colors";
-// import { Dashboard } from "components/Dashboard";
 
 interface SharedLayoutProps {
   [value: string]: any;
@@ -43,25 +33,6 @@ function SharedLayout(props: SharedLayoutProps) {
   const handleResetFormOpen = () => {
     setOpenResetForm(true);
   };
-
-  // const handleResetFormClose = () => {
-  //   setOpenResetForm(false);
-  // };
-
-  //   const matches = useMediaQuery((theme) => theme.breakpoints.down("md"));
-
-  //   useEffect(() => {
-  //     if (dvaultUser) {
-  //       setTimeout(() => {
-  //         setEmail(dvaultUser.email);
-  //         setFullName(`${dvaultUser.firstName} ${dvaultUser.lastName}`);
-  //       }, [750]);
-  //     }
-  //   }, [dvaultUser]);
-
-  //   const handleClick = (event) => {
-  //     setAnchorEl(event.currentTarget);
-  //   };
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -135,16 +106,6 @@ function SharedLayout(props: SharedLayoutProps) {
                     container
                     alignItems={"center"}
                     sx={{
-                      // background:
-                      //   location.pathname === "/" ||
-                      //   location.pathname === `/balance-details/${id}`
-                      //     ? `${theme.palette.common.linkRedBg}`
-                      //     : "none",
-                      //   my: 2,
-                      //   marginTop: "60px",
-                      //   background: "theme.palette.primary.main",
-                      //   padding: "10px",
-                      //   paddingLeft: "10px",
                       borderRadius: "10px",
                       marginBottom: "1.5rem",
                     }}
@@ -158,8 +119,7 @@ function SharedLayout(props: SharedLayoutProps) {
                         src={
                           location.pathname !== "/"
                             ? dashboardLogo
-                            : dashboardLogoActive //   ||
-                          //   location.pathname === `/balance-details/${id}`
+                            : dashboardLogoActive
                         }
                         sx={{ marginRight: "0.5rem" }}
                       />
@@ -196,10 +156,6 @@ function SharedLayout(props: SharedLayoutProps) {
                       // padding: "10px",
                       // paddingLeft: "10px",
                       borderRadius: "10px",
-                      // background:
-                      //   location.pathname === "/beneficiaries"
-                      //     ? `${theme.palette.common.linkRedBg}`
-                      //     : "none",
                     }}
                   >
                     <Grid
@@ -304,137 +260,7 @@ function SharedLayout(props: SharedLayoutProps) {
             background: "#fff",
           }}
         >
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            sx={{
-              px: 6,
-              py: 1,
-              //   background: "#FFFFFF",
-            }}
-          >
-            <Typography
-              component={"span"}
-              sx={{
-                fontSize: "2rem",
-                fontWeight: 500,
-              }}
-            >
-              {location.pathname === "/appraisal"
-                ? "Appraisal history"
-                : "Dashboard"}
-            </Typography>
-            {/* <AccountCircleOutlinedIcon
-              sx={{
-                fontSize: "2.5rem",
-              }}
-              onClick={handleClick}
-            /> */}
-            <Popover
-              id={idPop}
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-            >
-              <Paper
-                elevation={3}
-                sx={{
-                  "&.MuiPaper-root": {
-                    width: "250px",
-                    p: 2,
-                  },
-                }}
-              >
-                <Stack>
-                  <Box>
-                    {/* <AccountCircleOutlinedIcon
-                      sx={{
-                        fontSize: "2.5rem",
-                        display: "block",
-                        marginLeft: "auto",
-                        marginRight: "auto",
-                      }}
-                    /> */}
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        textAlign: "center",
-                        fontWeight: "700",
-                        fontSize: "1.3rem",
-                        my: 2,
-                      }}
-                    >
-                      {fullName}
-                    </Typography>
-                    <Divider />
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        fontWeight: "500",
-                        my: 1,
-                      }}
-                    >
-                      {email}
-                    </Typography>
-                    <Divider />
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        fontWeight: "500",
-                        my: 1,
-                        // color: `${theme.palette.common.flagIcon}`,
-                        "&:hover": {
-                          cursor: "pointer",
-                        },
-                      }}
-                      //   onClick={() => dispatch(logoutUser())}
-                    >
-                      Sign out
-                    </Typography>
-                  </Box>
-                </Stack>
-              </Paper>
-            </Popover>
-          </Stack>
           <Outlet />
-
-          {/* <Box
-            sx={{
-              px: 6,
-            }}
-          > */}
-          {/* {!dvaultUser?.lastLogin ? (
-              <Box>
-                <Dialog
-                  open={openResetForm}
-                  // onClose={handleResetFormClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <Alert severity="warning">
-                    Welcome! For security reasons, please reset your password to
-                    continue.
-                  </Alert>
-                  <DialogTitle
-                    id="alert-dialog-title"
-                    sx={{ textAlign: "center" }}
-                  >
-                    Reset Your Password
-                  </DialogTitle>
-                  <DialogContent>
-                    <ResetPasswordForm />
-                  </DialogContent>
-                </Dialog>
-              </Box>
-            ) : (
-              <Outlet />
-            )} */}
-          {/* </Box> */}
         </Grid>
       </Grid>
     </>
