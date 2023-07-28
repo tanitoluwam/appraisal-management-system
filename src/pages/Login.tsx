@@ -7,8 +7,9 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import LoginPhoto from '../assets/loginPhoto.svg';
+import LoginPhoto from '../assets/images/login-photo.png';
 import React from 'react';
+import LoginForm from 'components/LoginForm';
 
 function Login() {
   const theme = useTheme();
@@ -24,9 +25,11 @@ function Login() {
         container
         alignItems={'center'}
         columnSpacing={3}
-        sx={{
-          border: '2px solid green',
-        }}
+        sx={
+          {
+            // border: '2px solid green',
+          }
+        }
       >
         <Grid
           item
@@ -34,7 +37,8 @@ function Login() {
           sm={12}
           md={6}
           sx={{
-            border: '2px solid purple',
+            // border: '2px solid pu rple',
+            backgroundColor: theme.palette.primary.main,
           }}
         >
           {matches && (
@@ -44,7 +48,7 @@ function Login() {
                 // border: '2px solid yellow',
                 // width: '50',
                 width: '100%',
-                margin: '20px auto',
+                margin: '20px',
               }}
             >
               <Box
@@ -52,8 +56,8 @@ function Login() {
                 src={LoginPhoto}
                 alt='mailList'
                 sx={{
-                  width: '100%',
-                  maxHeight: '600px',
+                  // width: '100%',
+                  maxHeight: '900px',
                   minHeight: '400px',
                   display: 'block',
                   objectFit: 'cover',
@@ -89,6 +93,7 @@ function Login() {
             >
               Access your Dashboard and Tools
             </Typography>
+            <LoginForm />
           </Box>
         </Grid>
       </Grid>
