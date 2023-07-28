@@ -82,14 +82,16 @@ export default function CustomizedTables() {
               <StyledTableCell
                 component="th"
                 scope="row"
-                sx={{ color: "#64748B" }}
+                sx={{ color: "#059e8f", fontWeight: "500" }}
               >
                 {row.SelectorIcon}
               </StyledTableCell>
               <StyledTableCell align="center" sx={{ color: "#64748B" }}>
                 {row.DATE}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.SCORE}</StyledTableCell>
+              <StyledTableCell align="center" sx={{ color: "#64748B" }}>
+                {row.SCORE}
+              </StyledTableCell>
               <StyledTableCell align="center">
                 {" "}
                 <Typography
@@ -113,8 +115,7 @@ export default function CustomizedTables() {
                   {row.STATUS}
                 </Typography>{" "}
               </StyledTableCell>
-              <StyledTableCell align="center">
-                {" "}
+              <StyledTableCell align="center" sx={{ color: "#64748B" }}>
                 <Typography
                   sx={{
                     backgroundColor: "rgba(207, 185, 159)",

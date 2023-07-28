@@ -40,11 +40,10 @@ export const theme: CustomTheme = {
       main: lightNude,
     },
 
-    // Add other properties required by the PaletteOptions interface
     mode: "light",
     contrastThreshold: 3,
     tonalOffset: 0.2,
-    // error: { main: "#f44336" }, // If you have the error property, add it here
+    // error: { main: "#f44336" }, 
   },
   typography: {
     fontSize: 14,
