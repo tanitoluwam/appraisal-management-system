@@ -19,6 +19,7 @@ export interface CustomTheme {
 
 // Define color values
 const Green = "#1D606E";
+const mainGreen = "#059e8f";
 const black = "#000000";
 const white = "#ffffff";
 const lightNude = "#CFB99F";
@@ -55,4 +56,3 @@ export const theme: CustomTheme = {
 };
 
 export default createTheme(theme);
-
