@@ -12,23 +12,22 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
+  Avatar,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 // import { useDispatch } from "react-redux";
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
+import logoutLogo from "../assets/images/logout.svg";
+import appraisal from "../assets/images/appraisal-history.svg";
+import appraisalActive from "../assets/images/appraisal-history-active.svg";
+import dashboardLogo from "../assets/images/dashboard.svg";
+import dashboardLogoActive from "../assets/images/dashboard-active.svg";
+import { deepOrange } from "@mui/material/colors";
 
-// import dukkkalogo1 from "../assets/dukkalogo1.png";
-import Alert from "@mui/material/Alert";
-// import LogsInactive from "../assets/logs.svg";
-// import LogsActive from "../assets/logsActive.svg";
-// import BeneficiariesIcon from "../assets/beneficiaries.svg";
-// import BeneficiariesActiveIcon from "../assets/beneficiariesActive.svg";
-// import ProfileActive from "../assets/profile.svg";
-// import ProfileInactive from "../assets/profileInactive.svg";
-// import { logoutUser } from "../features/dvaultUserSlice";
-// import ResetPasswordForm from "../components/ResetPasswordForm";
-
-function SharedLayout() {
+interface SharedLayoutProps {
+  [value: string]: any;
+}
+function SharedLayout(props: SharedLayoutProps) {
   const theme = useTheme();
   const location = useLocation();
   //   const dispatch = useDispatch();
@@ -131,32 +130,37 @@ function SharedLayout() {
                 >
                   <Grid
                     container
-                    //   alignItems={"center"}
+                    alignItems={"center"}
                     sx={{
                       // background:
                       //   location.pathname === "/" ||
                       //   location.pathname === `/balance-details/${id}`
                       //     ? `${theme.palette.common.linkRedBg}`
                       //     : "none",
-                      // my: 2,
-                      // marginTop: "60px",
-                      background: "theme.palette.primary.main",
-                      // padding: "10px",
-                      // paddingLeft: "10px",
+                      //   my: 2,
+                      //   marginTop: "60px",
+                      //   background: "theme.palette.primary.main",
+                      //   padding: "10px",
+                      //   paddingLeft: "10px",
                       borderRadius: "10px",
+                      marginBottom: "1.5rem",
                     }}
                   >
-                    {/* <Grid item xs={3}>
-                    <Box
-                      component={"img"}
-                      //   src={
-                      //     location.pathname === "/" ||
-                      //     location.pathname === `/balance-details/${id}`
-                      //       ? ProfileActive
-                      //       : ProfileInactive
-                      //   }
-                    />
-                  </Grid> */}
+                    <Grid
+                      item
+                      //   xs={3}
+                    >
+                      <Box
+                        component={"img"}
+                        src={
+                          location.pathname !== "/"
+                            ? dashboardLogo
+                            : dashboardLogoActive //   ||
+                          //   location.pathname === `/balance-details/${id}`
+                        }
+                        sx={{ marginRight: "0.5rem" }}
+                      />
+                    </Grid>
                     <Grid
                       item
                       //   xs={9}
@@ -166,12 +170,7 @@ function SharedLayout() {
                         sx={{
                           fontSize: "24px",
                           fontWeight: 600,
-                          // color:
-                          //   location.pathname === "/" ||
-                          //   location.pathname === `/balance-details/${id}`
-                          //     ? `${theme.palette.primary.main}`
-                          //     : "#8CA1B6",
-                          color: "#fff",
+                          color: location.pathname !== "/" ? `#CFB99F` : "#fff",
                         }}
                       >
                         Dashboard
@@ -181,7 +180,7 @@ function SharedLayout() {
                 </NavLink>
 
                 <NavLink
-                  to="/beneficiaries"
+                  to="/appraisal"
                   style={{
                     textDecoration: "none",
                   }}
@@ -200,33 +199,38 @@ function SharedLayout() {
                       //     : "none",
                     }}
                   >
-                    {/* <Grid item xs={3}>
-                    <Box
-                      component={"img"}
-                      //   src={
-                      //     location.pathname === "/beneficiaries"
-                      //       ? BeneficiariesActiveIcon
-                      //       : BeneficiariesIcon
-                      //   }
-                    />
-                  </Grid> */}
                     <Grid
-                    //   item xs={9}
+                      item
+                      //   xs={3}
+                    >
+                      <Box
+                        component={"img"}
+                        src={
+                          location.pathname !== "/appraisal"
+                            ? appraisal
+                            : appraisalActive
+                        }
+                        sx={{ marginRight: "0.5rem" }}
+                      />
+                    </Grid>
+                    <Grid
+                      item
+                      //   xs={9}
                     >
                       <Typography
                         variant="body1"
                         sx={{
-                          fontSize: "24px",
+                          fontSize: "1.5rem",
                           fontWeight: 600,
-                          //   color:
-                          //     location.pathname === "/beneficiaries"
-                          //       ? `${theme.palette.primary.main}`
-                          //       : "#8CA1B6",
-                          color: "#CFB99F",
-                          marginTop: "1rem",
+                          color:
+                            location.pathname !== "/appraisal"
+                              ? `#CFB99F`
+                              : "#fff",
+                          //   color: "#CFB99F",
+                          //   marginTop: "1rem",
                         }}
                       >
-                        Beneficiaries
+                        Appraisal history
                       </Typography>
                     </Grid>
                   </Grid>
@@ -241,22 +245,46 @@ function SharedLayout() {
                     margin: "0 0 2rem 0",
                   }}
                 >
-                  <Typography sx={{ color: "#fff", fontWeight: "600" }}>
-                    {" "}
-                    Mary Jane
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#edf5f4",
-                      fontWeight: "200",
-                      fontSize: "0.8rem",
-                    }}
-                  >
-                    Sales analyst
-                  </Typography>
+                  <Box sx={{ display: "flex" }}>
+                    <Avatar
+                      sx={{
+                        bgcolor: "#CFB99F",
+                        fontSize: "1rem",
+                        width: "30px",
+                        height: "30px",
+                        marginRight: "0.4rem",
+                      }}
+                    >
+                      MJ
+                    </Avatar>
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#fff",
+                          fontWeight: "600",
+                        }}
+                      >
+                        Mary Jane
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#edf5f4",
+                          fontWeight: "200",
+                          fontSize: "0.8rem",
+                        }}
+                      >
+                        Sales analyst
+                      </Typography>
+                    </Box>
+                  </Box>
                 </Box>
 
-                <Box>
+                <Box sx={{ display: "flex" }}>
+                  <Box
+                    component={"img"}
+                    src={logoutLogo}
+                    sx={{ marginRight: "0.4rem" }}
+                  />
                   <Typography sx={{ color: "#fff", fontWeight: "600" }}>
                     Logout
                   </Typography>

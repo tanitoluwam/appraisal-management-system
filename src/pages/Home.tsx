@@ -1,12 +1,13 @@
-import React from 'react';
-import SharedLayout from './SharedLayout';
+import React from "react";
+import SharedLayout from "./SharedLayout";
 
 const Home = () => {
   return (
     <div>
-      <SharedLayout/>
+      {/* <SharedLayout/> */}
+      Hello
     </div>
   );
-}
+};
 
 export default Home;
