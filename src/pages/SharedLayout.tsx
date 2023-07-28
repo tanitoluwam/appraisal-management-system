@@ -23,6 +23,7 @@ import appraisalActive from "../assets/images/appraisal-history-active.svg";
 import dashboardLogo from "../assets/images/dashboard.svg";
 import dashboardLogoActive from "../assets/images/dashboard-active.svg";
 import { deepOrange } from "@mui/material/colors";
+import { Dashboard } from "components/Dashboard";
 
 interface SharedLayoutProps {
   [value: string]: any;
@@ -121,7 +122,9 @@ function SharedLayout(props: SharedLayoutProps) {
                 Tribe Check
               </Box>
 
-              <Box sx={{ margin: { md: "5rem 0 20rem 0" } }}>
+              <Box
+                sx={{ margin: { md: "5rem 0 10rem 0", lg: "5rem 0 20rem 0" } }}
+              >
                 <NavLink
                   to="/"
                   style={{
@@ -168,7 +171,7 @@ function SharedLayout(props: SharedLayoutProps) {
                       <Typography
                         variant="body1"
                         sx={{
-                          fontSize: "24px",
+                          fontSize: { md: "18px", lg: "24px" },
                           fontWeight: 600,
                           color: location.pathname !== "/" ? `#CFB99F` : "#fff",
                         }}
@@ -220,7 +223,7 @@ function SharedLayout(props: SharedLayoutProps) {
                       <Typography
                         variant="body1"
                         sx={{
-                          fontSize: "1.5rem",
+                          fontSize: { md: "18px", lg: "24px" },
                           fontWeight: 600,
                           color:
                             location.pathname !== "/appraisal"
@@ -314,30 +317,13 @@ function SharedLayout(props: SharedLayoutProps) {
             <Typography
               component={"span"}
               sx={{
-                fontSize: "2.1rem",
+                fontSize: "2rem",
                 fontWeight: 500,
               }}
             >
-              {location.pathname === `/business-wallet/${id}` ? (
-                <>
-                  {/* <Link
-                    to="/"
-                    style={{
-                      textDecoration: "none",
-                      color: `${theme.palette.common.lightBlue}`,
-                    }}
-                  >
-                    Dashboard {">"}
-                  </Link> */}
-                  Dashboard
-                </>
-              ) : location.pathname === "/business-wallet" ? (
-                "Business Wallet"
-              ) : location.pathname === "/beneficiaries" ? (
-                "Beneficiaries"
-              ) : (
-                "Dashboard"
-              )}
+              {location.pathname === "/appraisal"
+                ? "Appraisal history"
+                : "Dashboard"}
             </Typography>
             {/* <AccountCircleOutlinedIcon
               sx={{
