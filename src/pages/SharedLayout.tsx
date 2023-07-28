@@ -23,7 +23,7 @@ import appraisalActive from "../assets/images/appraisal-history-active.svg";
 import dashboardLogo from "../assets/images/dashboard.svg";
 import dashboardLogoActive from "../assets/images/dashboard-active.svg";
 import { deepOrange } from "@mui/material/colors";
-import { Dashboard } from "components/Dashboard";
+// import { Dashboard } from "components/Dashboard";
 
 interface SharedLayoutProps {
   [value: string]: any;

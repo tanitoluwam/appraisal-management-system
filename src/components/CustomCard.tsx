@@ -5,9 +5,13 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import PerformanceIcon from "assets/images/performance-icon.svg";
 
-
-
-export default function CustomCard() {
+interface props {
+  title: string;
+  subTitle: string;
+  performance?: boolean;
+}
+export default function CustomCard(props: props) {
+  const { title, subTitle, performance } = props;
   return (
     <Card
       sx={{
@@ -30,19 +34,25 @@ export default function CustomCard() {
           color="text.secondary"
           gutterBottom
         >
-          Performance Metrics
+          {title}
         </Typography>
         <Box
           sx={{
             display: "flex",
-            justifyContent:"space-between",
+            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
-          <Typography sx={{ color: "#6ED097", fontWeight: 500 }}>
-            Aggregate Score
+          <Typography
+            sx={{
+              color: !performance ? "#CFB99F" : "#6ED097",
+              fontWeight: 500,
+              margin: !performance ? "1rem 0 0 0" : "",
+            }}
+          >
+            {subTitle}
           </Typography>
-          <Box component="img" src={PerformanceIcon} />
+          {performance ? <Box component="img" src={PerformanceIcon} /> : ""}
         </Box>
       </CardContent>
     </Card>
