@@ -1,12 +1,7 @@
 import React from "react";
-import SharedLayout from "./SharedLayout";
 
 const AppraisalHistory = () => {
-  return (
-    // <SharedLayout>
-    <div>Appraisal history</div>
-    // </SharedLayout>
-  );
+  return <div>Appraisal history</div>;
 };
 
 export default AppraisalHistory;
