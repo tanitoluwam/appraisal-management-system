@@ -1,11 +1,14 @@
+import Home from "pages/Home";
+// import SharedLayout from "pages/SharedLayout";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 
 function DvaultRoutes() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Home />} />
+
         {/* <Route
           path={"/"}
           element={
@@ -14,7 +17,7 @@ function DvaultRoutes() {
             </ProtectedRoutes>
           }
         > */}
-          {/* <Route index element={<Dashboard />} />
+        {/* <Route index element={<Dashboard />} />
           <Route path="/terminals" element={<AllTerminalList />} />
 
           <Route path="/transactions/" element={<TransactionList />} />
