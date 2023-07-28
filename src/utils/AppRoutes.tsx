@@ -1,11 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import Login from 'pages/Login';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function DvaultRoutes() {
   return (
     <Router>
       <Routes>
+        <Route path={'/login'} element={<Login />} />
         {/* <Route
           path={"/"}
           element={
@@ -14,7 +15,7 @@ function DvaultRoutes() {
             </ProtectedRoutes>
           }
         > */}
-          {/* <Route index element={<Dashboard />} />
+        {/* <Route index element={<Dashboard />} />
           <Route path="/terminals" element={<AllTerminalList />} />
 
           <Route path="/transactions/" element={<TransactionList />} />
